@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="text/javascript" src="canvasjs.min.js"></script>
+	<script type="text/javascript" src="Chart.min.js"></script>
+	<script type="text/javascript" src="graphBuilder.js"></script>
+  </head>
+  <body>	
+  	<div id="alvaContent">
+  		<div id="alvaHeader">
+  			<img id="alvaImage" src="alva.png"/>
+  		</div>
+		<div id="alvaContainer">
+			<div class="alvaData">
+				<h2>Today´s current usage</h2>
+				<canvas id="myChart" width="400" height="200"></canvas>
+				<div id="currentData">
+					<h1>kw</h1>
+				</div>
+			</div>
+			<div class="alvaData">
+				<h2>Energy usage (Mw)</h2>
+				<div id="chartContainer2"></div>
+			</div>
+			<div class="alvaData">
+				<h2>Zones</h2>
+				<div id="currentData">
+					<h1>Laminar</h1>
+				</div>
+				<div id="currentData">
+					<h1>SouthPark</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+  </body>
+</html>
