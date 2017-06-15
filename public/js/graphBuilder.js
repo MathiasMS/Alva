@@ -1,39 +1,33 @@
 window.onload = function () {
- var myPieChart = new Chart(document.getElementById("myChart"), {
-            type: 'doughnut',
-            data: {
-              labels: ["Lightening", "Air Conditioning"],
-              datasets: [
-                {
-                  label: "Total Current Usage (km)",
-                  backgroundColor: ["#3e95cd", "#8e5ea2"],
-                  data: [50,50]
-                }
-              ]
-            },
-            options: {
-              title: {
-                display: true,
-                text: 'Predicted world population (millions) in 2050'
-              }
-            }
-        });
-            
-    setInterval(function(){ $.ajax({
-      url: "http://169.254.236.92:8081"
-    })
-      .done(function( msg ) {
-        $("#iluminacionValor").html(msg.iluminacion + " kw");
-       myPieChart.data.datasets.forEach((dataset) => {
-                dataset.data[0] = Math.abs(msg.iluminacion);
-                dataset.data[1] = Math.abs(msg.equipos);
-            });
-            myPieChart.update();
-        
-    }); }, 3000);
 
 
-        
+		var myPieChart = new Chart(document.getElementById("myChart"), {
+		    type: 'doughnut',
+		    data: {
+		      labels: ["Lightening", "Air Conditioning"],
+		      datasets: [
+		        {
+		          label: "Total Current Usage (km)",
+		          backgroundColor: ["#3e95cd", "#8e5ea2"],
+		          data: [70,30]
+		        }
+		      ]
+		    },
+		    options: {
+		      title: {
+		        display: true
+		      }
+		    }
+		});
+
+		setInterval(function(){
+			console.log("ENTRE");
+			myPieChart.data.datasets.forEach((dataset) => {
+		        dataset.data[0]=dataset.data[0] +2;
+		        dataset.data[1]=dataset.data[1] -2;
+		    });
+		    myPieChart.update();
+		},1000);
 	var chart2 = new CanvasJS.Chart("chartContainer2",
     {
         title: {
