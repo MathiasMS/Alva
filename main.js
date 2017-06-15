@@ -1,9 +1,7 @@
 var express = require('express');
 var app = express();
-var mongo = require('mongodb');
 var assert = require('assert');
-var MongoClient = mongo.MongoClient;
-var url = 'mongodb://localhost:27017/alvadb';
+var prueba = require('./prueba.js');
 
 app.use(express.static('public'));
 app.get('/alva.html', function (req, res) {
@@ -21,16 +19,20 @@ app.get('/Chart.min.js', function (req, res) {
    res.sendFile( __dirname + "/" + "/js/Chart.min.js" );
 })
 
-app.get('/graphBuilder.js', function (req, res) {
-   res.sendFile( __dirname + "/" + "/js/graphBuilder.js" );
-})
-
 app.get('/alva.png', function (req, res) {
    res.sendFile( __dirname + "/" + "/resources/alva.png" );
 })
 
 app.get('/', function (req, res) {
    res.sendFile( __dirname + "/" + "/html/alva.html" );
+})
+
+app.get('/prueba.js', function (req, res) {
+   res.sendFile( __dirname + "/" + "/prueba.js" );
+})
+
+app.get('/graphBuilder.js', function (req, res) {
+   res.sendFile( __dirname + "/" + "/graphBuilder.js" );
 })
 
 
@@ -41,9 +43,4 @@ var server = app.listen(8081, function () {
    console.log("Example app listening at http://%s:%s", host, port)
 })
 
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  console.log("Database created!");
-  db.close();
-});
 
